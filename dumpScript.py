@@ -9,7 +9,7 @@ eventLogCol = myDB["event_logs"]
 objectMappingCol = myDB["object_mapping"]
 
 totalRowsInserted = 0
-numberOfRecords = random.randint(10000, 10001)
+numberOfRecords = random.randint(100, 200)
 
 for i in range(0, numberOfRecords):
     x = uuid.uuid1()
@@ -31,7 +31,7 @@ for i in range(0, numberOfRecords):
     myDict = {"meeting_id": meeting_id, "call2_id": call2Id}
     objectMappingCol.insert_one(myDict)
     totalRowsInserted += 1
-    print("inserted - {}".format(meeting_id))
+    print("{} - inserted - {}".format(totalRowsInserted, meeting_id))
 
 print(myClient.list_database_names())
 print(myDB.list_collection_names())
